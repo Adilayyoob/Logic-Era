@@ -5,7 +5,9 @@
 
 <h1>Welcome {{ user }}</h1>
 <div>
-    <h1>Upcoming Events</h1>
+   <h1>Upcoming Events</h1>
+
+<div class="home_table">
 <table class="table">
     <thead>
       <tr>
@@ -34,17 +36,24 @@
   </table>
 </div>
 
-
+<div>
 <form action="" method="POST">
   {% csrf_token %}
-  {{ form }}
-  <input type="submit" name="Submit">
-
-
+  <div class="mb-3">
+    <label  class="form-label">Event</label>
+    {{ form.Event }}
+  </div>
+  <span id="not_needed">
+    {{ form.User }}
+  </span>
+  
+  <input type="submit" name="Submit" value="join">
 </form>
+</div>
 
-<div>
-  <h1>Joined Events</h1>
+<h1>Joined Events</h1>
+<div class="home_table">
+  
 <table class="table">
   <thead>
     <tr>
@@ -84,6 +93,9 @@
    
   </tbody>
 </table>
+</div>
+
+
 </div>
 
 {% endblock %}

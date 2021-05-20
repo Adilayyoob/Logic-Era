@@ -44,6 +44,8 @@ def create(request,us):
         form = eventForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Event created successfully ' )
+            return redirect('/home/' + str(request.user.id))
     context = {
         'users':users,
         'form':form,
@@ -89,7 +91,7 @@ def deletejoin(request, us):
 
 def register(request):
     if request.user.is_authenticated:
-        return redirect('/home/')
+        return redirect('/home/' + str(request.user.id))
     else:
         form = CreateUserForm()
         if request.method == 'POST':
@@ -107,7 +109,7 @@ def register(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('/home/')
+        return redirect('/home/' + str(request.user.id))
     else:
         context = {}
         if request.method  == 'POST':
