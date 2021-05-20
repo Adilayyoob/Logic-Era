@@ -1,0 +1,82 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<h1>Welcome {{ users.name }}</h1>
+<div>
+    <h1>Upcoming Events</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date And Time</th>
+        <th scope="col">Location</th>
+        <th scope="col">Max Participants</th>
+        <th scope="col">Description</th>
+        <th scope="col">Banner</th>
+        <th scope="col">Update/Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for i in events %}
+      <tr>
+        <th scope="col">{{i.id}}</th>
+        <th scope="col">{{i.title}}</th>
+        <th scope="col">{{i.date}}</th>
+        <th scope="col">{{i.location}}</th>
+        <th scope="col">{{i.max}}</th>
+        <th scope="col">{{i.description}}</th>
+        <th scope="col"><img src="{{i.banner}}"></th>
+        <td>
+            <button type="button" class="btn btn-outline-success">Join</button>
+            <button type="button" class="btn btn-outline-danger">Delete</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+<div>
+  <h1>Joined Events</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date And Time</th>
+      <th scope="col">Location</th>
+      <th scope="col">Max Participants</th>
+      <th scope="col">Description</th>
+      <th scope="col">Banner</th>
+  </tr>
+  </thead>
+  <tbody>
+    
+    
+     {% for j in usersJoinedEvent %}
+        {% for i in events %}
+          {% if j.Event_id == i.id %}
+          <tr>
+            <th scope="col">{{i.id}}</th>
+            <th scope="col">{{i.title}}</th>
+            <th scope="col">{{i.date}}</th>
+            <th scope="col">{{i.location}}</th>
+            <th scope="col">{{i.max}}</th>
+            <th scope="col">{{i.description}}</th>
+            <th scope="col"><img src="{{i.banner}}"></th>
+          </tr>
+          {% endif %}
+        {% endfor %}
+          
+      {% endfor %}
+  
+   
+  </tbody>
+</table>
+</div>
+
+{% endblock %}
