@@ -4,67 +4,41 @@
 
 <h1>create</h1>
 
-
 <div>
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    {{ form.title }}
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Date and Time</label>
+    {{ form.date }}
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Location</label>
+    {{ form.location }}
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Max Participants</label>
+    {{ form.max }}
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    {{ form.description }}
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Image</label>
+    {{ form.banner }}
+  </div>
 
-<div class="mb-3">
-    <label for="formGroupExampleInput" class="form-label">Title</label>
-    <input type="text" class="form-control" id="formGroupExampleInput">
-  </div>
-  <div class="mb-3">
-    <label for="formGroupExampleInput2" class="form-label">Date and Time</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" >
-  </div>
-  <div class="mb-3">
-    <label for="formGroupExampleInput3" class="form-label">Location</label>
-    <input type="text" class="form-control" id="formGroupExampleInput3" >
-  </div>
-  <div class="mb-3">
-    <label for="formGroupExampleInput4" class="form-label">Max Participants</label>
-    <input type="text" class="form-control" id="formGroupExampleInput4" >
-  </div>
-  <div class="mb-3">
-    <label for="formGroupExampleInput5" class="form-label">Description</label>
-    <input type="text" class="form-control" id="formGroupExampleInput5" >
-  </div>
-  <div class="mb-3">
-    <label for="formGroupExampleInput6" class="form-label">Image</label>
-    <input type="text" class="form-control" id="formGroupExampleInput6" >
-  </div>
 </div>
 
+<input type="submit" name="Submit">
 
-<div>
-    <h1>Upcoming Events</h1>
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Date And Time</th>
-        <th scope="col">Location</th>
-        <th scope="col">Max Participants</th>
-        <th scope="col">Description</th>
-        <th scope="col">Banner</th>
-        <th scope="col">Update/Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Eid</td>
-        <td>17/5/2020 5 pm</td>
-        <td>@Ampi teatre</td>
-        <td>10</td>
-        <td>Just not a program</td>
-        <td>@Ampi teatre</td>
-        <td>
-            <button type="button" class="btn btn-outline-success">Update</button>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
 {% endblock %}
+
+
+
+

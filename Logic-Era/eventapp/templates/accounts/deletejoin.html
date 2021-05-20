@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<p>Are you sure leaving the Event "{{ joinevents }}"?</p>
+<form action="{% url 'deletejoin' joinevents.id %}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'join' users.id %}">Cancel</a>
+    <input type="submit" name="Confirm">
+</form>
+
+
+{% endblock %}

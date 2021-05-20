@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<h1>home</h1>
+<h1>home {{a_user}}</h1>
 
 <div>
     <h1>Upcoming Events</h1>
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">Title</th>
         <th scope="col">Date And Time</th>
         <th scope="col">Location</th>
@@ -28,7 +28,7 @@
         <th scope="col">{{i.location}}</th>
         <th scope="col">{{i.max}}</th>
         <th scope="col">{{i.description}}</th>
-        <th scope="col"><img src="{{i.banner}}"></th>
+        <th scope="col"><img src="{{i.banner}}" width="200" height="100"></th>
       </tr>
       {% endfor %}
     </tbody>
@@ -40,8 +40,8 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">0</h5>
-              <p class="card-text">Registered Event</p>
+              <h5 class="card-title">{{joinedEventCount}}</h5>
+              <p class="card-text">Joined Event</p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
@@ -62,31 +62,6 @@
 
 </div>
 
-<div>
-    <h1>Registered Events Details</h1>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Date And Time</th>
-            <th scope="col">Location</th>
-            <th scope="col">Max Participants</th>
-            <th scope="col">Description</th>
-            <th scope="col">Banner</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
 
 {% endblock %}

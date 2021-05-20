@@ -1,8 +1,9 @@
 {% extends 'accounts/main.html' %}
+{% load static %}
 
 {% block content %}
 
-<h1>Welcome {{ users.name }}</h1>
+<h1>Welcome {{ user }}</h1>
 <div>
     <h1>Upcoming Events</h1>
 <table class="table">
@@ -15,7 +16,6 @@
         <th scope="col">Max Participants</th>
         <th scope="col">Description</th>
         <th scope="col">Banner</th>
-        <th scope="col">Update/Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -27,11 +27,7 @@
         <th scope="col">{{i.location}}</th>
         <th scope="col">{{i.max}}</th>
         <th scope="col">{{i.description}}</th>
-        <th scope="col"><img src="{{i.banner}}"></th>
-        <td>
-            <button type="button" class="btn btn-outline-success">Join</button>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
-        </td>
+        <th scope="col"><img src="{{i.banner}}" width="200" height="100"></th>
       </tr>
       {% endfor %}
     </tbody>
@@ -39,6 +35,13 @@
 </div>
 
 
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" name="Submit">
+
+
+</form>
 
 <div>
   <h1>Joined Events</h1>
@@ -52,6 +55,7 @@
       <th scope="col">Max Participants</th>
       <th scope="col">Description</th>
       <th scope="col">Banner</th>
+      <th scope="col">Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -67,7 +71,10 @@
             <th scope="col">{{i.location}}</th>
             <th scope="col">{{i.max}}</th>
             <th scope="col">{{i.description}}</th>
-            <th scope="col"><img src="{{i.banner}}"></th>
+            <th scope="col"><img src="{{i.banner}}" width="200" height="100"></th>
+            <td>
+              <a class="btn btn-outline-danger" href="{% url 'deletejoin' j.id %}">Delete</a>
+          </td>
           </tr>
           {% endif %}
         {% endfor %}
