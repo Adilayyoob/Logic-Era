@@ -23,35 +23,52 @@ def main(request,us):
 
 @login_required(login_url='login')
 def home(request,us):
-    a_user = request.user.id 
+    au_user = request.user.id 
     users = User.objects.get(id=us)
     events = event.objects.all()
     joinevents = joinevent.objects.all()
     joinedEventCount = joinevents.filter(User_id=us).count()
+    CreatedEventCount = events.filter(a_user=us).count()
     context = {
          'users':users,
          'events':events,
          'joinedEventCount':joinedEventCount,
-         'a_user':a_user,
+         'au_user':au_user,
+         'CreatedEventCount':CreatedEventCount,
      }
     return render(request, 'accounts/home.html', context)
     
 @login_required(login_url='login')
 def create(request,us):
-    form = eventForm()
+    events = event.objects.all()
+    form = eventForm(initial={'a_user':request.user.id})
     users = User.objects.get(id=us)
     if request.method == 'POST':
-        form = eventForm(request.POST)
+        form = eventForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Event created successfully ' )
-            return redirect('/home/' + str(request.user.id))
+            return redirect('/create/' + str(request.user.id))
     context = {
         'users':users,
         'form':form,
+        'events':events,
        
      }
     return render(request, 'accounts/create.html', context)
+
+@login_required(login_url='login')
+def deleteevent(request, us):
+    events = event.objects.get(id=us)
+    usersid = events.a_user
+    users = User.objects.get(id=usersid)
+    if request.method == 'POST':
+        events.delete()
+        return redirect('/create/' + str(request.user.id))
+    context = {
+        'users':users,
+        'events':events,
+     }
+    return render(request, 'accounts/deleteevent.html', context)
     
 @login_required(login_url='login')
 def join(request,us):
@@ -130,6 +147,9 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+
+
 
 
 

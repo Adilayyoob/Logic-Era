@@ -8,3 +8,4 @@ from .models import joinevent
 admin.site.register(event)
 admin.site.register(joinevent)
 
+

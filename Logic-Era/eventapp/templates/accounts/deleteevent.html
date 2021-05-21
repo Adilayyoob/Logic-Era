@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<p>Are you sure deleting the Event "{{ events }}"?</p>
+<form action="{% url 'deleteevent' events.id %}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'create' users.id %}">Cancel</a>
+    <input type="submit" name="Confirm">
+</form>
+
+
+{% endblock %}

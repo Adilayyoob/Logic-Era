@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>home {{a_user}}</h1>
+<h1>home {{au_user}}</h1>
 
 
 <h1>Upcoming Events</h1>
@@ -33,7 +33,9 @@
         <th scope="col">{{i.location}}</th>
         <th scope="col">{{i.max}}</th>
         <th scope="col">{{i.description}}</th>
-        <th scope="col"><img src="{{i.banner}}" width="200" height="100"></th>
+        {% if i.banner %}
+              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
@@ -54,8 +56,8 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">0</h5>
-              <p class="card-text">Completed Event</p>
+              <h5 class="card-title">{{ CreatedEventCount }}</h5>
+              <p class="card-text">Created Events</p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>

@@ -29,7 +29,9 @@
         <th scope="col">{{i.location}}</th>
         <th scope="col">{{i.max}}</th>
         <th scope="col">{{i.description}}</th>
-        <th scope="col"><img src="{{i.banner}}" width="200" height="100"></th>
+        {% if i.banner %}
+              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
@@ -43,7 +45,7 @@
     <label  class="form-label">Event</label>
     {{ form.Event }}
   </div>
-  <span id="not_needed">
+  <span >
     {{ form.User }}
   </span>
   
@@ -57,7 +59,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Id</th>
       <th scope="col">Title</th>
       <th scope="col">Date And Time</th>
       <th scope="col">Location</th>
@@ -80,7 +82,9 @@
             <th scope="col">{{i.location}}</th>
             <th scope="col">{{i.max}}</th>
             <th scope="col">{{i.description}}</th>
-            <th scope="col"><img src="{{i.banner}}" width="200" height="100"></th>
+            {% if i.banner %}
+              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
+            {% endif %}
             <td>
               <a class="btn btn-outline-danger" href="{% url 'deletejoin' j.id %}">Delete</a>
           </td>

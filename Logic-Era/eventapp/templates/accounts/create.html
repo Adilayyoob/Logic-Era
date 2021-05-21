@@ -1,5 +1,5 @@
 {% extends 'accounts/main.html' %}
-
+{% load static %}
 {% block content %}
 
 
@@ -15,7 +15,7 @@
 </style>
 
 <div class="formcontainer">
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="mb-3">
     <label class="form-label">Title</label>
@@ -39,8 +39,12 @@
     {{ form.description }}
   </div>
   <div class="mb-3">
-    <label  class="form-label">Image(Host the image in google drive and paste the link)</label>
+    <label  class="form-label">Image</label>
     {{ form.banner }}
+  </div>
+  <div>
+    
+    {{ form.a_user }}
   </div>
 
 
@@ -52,6 +56,50 @@
 
 
 
+<h1>created Events</h1>
+<div class="home_table">
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date And Time</th>
+        <th scope="col">Location</th>
+        <th scope="col">Max Participants</th>
+        <th scope="col">Description</th>
+        <th scope="col">Banner</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+      
+      
+      
+          {% for i in events %}
+            {% if i.a_user == users.id %}
+            <tr>
+              <th scope="col">{{i.id}}</th>
+              <th scope="col">{{i.title}}</th>
+              <th scope="col">{{i.date}}</th>
+              <th scope="col">{{i.location}}</th>
+              <th scope="col">{{i.max}}</th>
+              <th scope="col">{{i.description}}</th>
+              {% if i.banner %}
+              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
+              {% endif %}
+              <td>
+                <a class="btn btn-outline-danger" href="{% url 'deleteevent' i.id %}">Delete</a>
+            </td>
+            </tr>
+            {% endif %}
+          {% endfor %}
+            
+    
+     
+    </tbody>
+  </table>
+  </div>
 
 
 <script type="text/javascript">
@@ -73,6 +121,7 @@
 		for (var field in form_fields){	
 			form_fields[field].className += ' form-control'
 		}
+
 </script>
 
 

@@ -10,6 +10,7 @@ class joineventForm(ModelForm):
     class Meta:
         model = joinevent
         fields = '__all__'
+        widgets = {'User': forms.HiddenInput()}
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -20,3 +21,4 @@ class eventForm(ModelForm):
     class Meta:
         model = event
         fields = '__all__'
+        widgets = {'a_user': forms.HiddenInput()}

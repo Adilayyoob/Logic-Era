@@ -8,7 +8,8 @@ class event(models.Model):
     location = models.CharField(max_length=255, null=True)
     max = models.IntegerField(null=True)
     description = models.CharField(max_length=2500,null=True)
-    banner = models.CharField(max_length=2500,null=True)
+    banner = models.ImageField(null=True, blank=True)
+    a_user = models.IntegerField(null=True)
     
     def __str__(self):
         return self.title
@@ -21,4 +22,5 @@ class joinevent(models.Model):
     
     def __str__(self):
         return self.Event.title
+
 
