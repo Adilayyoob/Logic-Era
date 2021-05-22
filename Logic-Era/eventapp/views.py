@@ -72,6 +72,7 @@ def deleteevent(request, us):
     
 @login_required(login_url='login')
 def join(request,us):
+    events = event.objects.all()
     users = User.objects.get(id=us)
     form = joineventForm(initial={'User':users})
     if request.method == 'POST':
@@ -79,7 +80,7 @@ def join(request,us):
         if form.is_valid():
             form.save()
     
-    events = event.objects.all()
+    
     joinevents = joinevent.objects.all()
     usersJoinedEvent = users.joinevent_set.all()
     context = {
@@ -103,6 +104,15 @@ def deletejoin(request, us):
         'joinevents':joinevents,
      }
     return render(request, 'accounts/deletejoin.html', context)
+
+
+def welcome(request):
+    events = event.objects.latest('id')
+    context = {
+        'events':events,
+    }
+    return render(request, 'accounts/welcome.html', context)
+
 
 
 

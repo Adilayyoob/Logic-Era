@@ -2,6 +2,8 @@
 
 {% block content %}
 
+
+<div class="">
 <h1>home {{au_user}}</h1>
 
 
@@ -71,3 +73,35 @@
 
 
 {% endblock %}
+
+
+<!--
+
+<div>
+  <div class="row row-cols-1 row-cols-md-5 g-4">
+  {% for i in events %}
+  
+  <div class="col">
+  <div class="card">
+    {% if i.banner %}
+    <img src="{{ i.banner.url }}" class="card-img-top" alt="Banner" width="286" height="180">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}}</h5>
+      <p class="card-text">{{i.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Date: {{i.date}}</li>
+      <li class="list-group-item">Location: {{i.location}}</li>
+      <li class="list-group-item">Max number of Participants: {{i.max}}</li>
+    </ul>
+  </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+</div>
+
+
+-->
