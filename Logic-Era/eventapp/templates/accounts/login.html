@@ -14,13 +14,13 @@
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #7abecc !important;
+			background: rgba(0, 0, 0, 0.67);
 		}
 		.user_card {
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: #74cfbf;
+			background: #18414E;
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -44,8 +44,12 @@
 
 		.login_btn {
 			width: 100%;
-			background: #33ccff !important;
-			color: white !important;
+			background: #d6e46d !important;
+			color: black !important;
+		}
+		.login_btn:hover{
+			background: #18414E !important;
+			color:white !important;
 		}
 		.login_btn:focus {
 			box-shadow: none !important;
@@ -67,10 +71,16 @@
 		}
 
 		#messages{
-			background-color: grey;
+			background-color: black;
 			color: #fff;
 			padding: 10px;
 			margin-top: 10px;
+		}
+		.dontText{
+			color: #d6e46d;
+		}
+		.signLink{
+			color: white;
 		}
 	</style>
 
@@ -110,8 +120,8 @@
                     <p id="messages">{{message}}</p>
                 {% endfor %}
 				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+					<div class="d-flex justify-content-center links dontText">
+						Don't have an account? <a href="{% url 'register' %}" class="ml-2 signLink">Register</a>
 					</div>
 			
 				</div>

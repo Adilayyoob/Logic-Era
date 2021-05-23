@@ -13,13 +13,13 @@
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #7abecc !important;
+			background: rgba(0, 0, 0, 0.67);
 		}
 		.user_card {
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: #74cfbf;
+			background: #18414E;
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -41,8 +41,12 @@
 		}
 		.login_btn {
 			width: 100%;
-			background: #33ccff !important;
-			color: white !important;
+			background: #d6e46d !important;
+			color: black !important;
+		}
+		.login_btn:hover{
+			background: #18414E !important;
+			color:white !important;
 		}
 		.login_btn:focus {
 			box-shadow: none !important;
@@ -61,6 +65,12 @@
 		.input_pass:focus {
 			box-shadow: none !important;
 			outline: 0px !important;
+		}
+		.dontText{
+			color: #d6e46d;
+		}
+		.regLink{
+			color: white;
 		}
 
 	</style>
@@ -109,8 +119,8 @@
 				</div>
 		        {{ form.errors}}
 				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
+					<div class="d-flex justify-content-center links dontText">
+						Already have an account? <a href="{% url 'login' %}" class="ml-2 regLink">Login</a>
 					</div>
 				</div>
 			</div>

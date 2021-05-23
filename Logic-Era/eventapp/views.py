@@ -105,6 +105,21 @@ def deletejoin(request, us):
      }
     return render(request, 'accounts/deletejoin.html', context)
 
+@login_required(login_url='login')
+def eventdetails(request, us):
+    events = event.objects.get(id=us)
+    usersid = events.a_user
+    users = User.objects.get(id=usersid)
+
+    peoplejoined = joinevent.objects.filter(Event_id=us)
+    users1 = User.objects.all()
+    context = {
+        'users':users,
+        'peoplejoined':peoplejoined,
+        'users1':users1,
+    }
+    return render(request, 'accounts/eventdetails.html', context)
+
 
 def welcome(request):
     events = event.objects.latest('id')

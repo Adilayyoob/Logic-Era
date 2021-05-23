@@ -16,11 +16,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Oleo+Script+Swash+Caps&family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet">
-    
+    {% load static %}
+    <!-- animate CSS -->
+    <link href="{% static 'animate/animate.min.css'%}" rel="stylesheet">
     
 
     <title>FC EMP</title>
     <style>
+      /*main page*/
+      body{
+        background-color: rgba(0, 0, 0, 0.67); 
+      }
       #title{
         margin-left: 167px;
         color: white;
@@ -40,25 +46,158 @@
         background-color: #18414E;
         color: white;
       }
+      /*home page*/
       .upcoming_event_view{
         width: 70%;
         margin-left: auto;
         margin-right: auto;
       }
+      h2{
+            font-family: Poppins;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 24px;
+            margin-top: 10px;
+            color: white;
+            margin-left: 5%;
+      }
+      h2 span{
+        color: #f37973;
+      }
+      .up{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+           
+        }
+      h1{
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 800;
+          font-size: 36px;
+          line-height: 54px;
+          color: white;
+         
+          
+      }
+      h1 span{
+          color: #d6e46d;
+      }
+      #cards_view{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        
+      }
+      .cardViewCards{
+        background-color: #18414E;
+        border-radius: 10px;
+        border: 2px solid white;
+      }
+      .cardViewCards p{
+        font-size: 24px;
+        font-family: 'Poppins', sans-serif;
+      }
+      #joinedCountCard{
+        color: #f37973;
+      }
+      #createdCountCard{
+        color: #d6e46d;
+      }
+      .cardViewCards h5{
+        font-size: 48px;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+      }
+      #upEventCardView{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:420px;
+      }
+      .background_EventCard{
+        background-color: #18414E;
+      }
+      .prime_green{
+        color: #d6e46d;
+
+      }
+      .prime_red{
+        color: #f37973;
+      }
+      /*delete pages*/
+      .delete_view{
+        background:  #18414E;
+        border: 2px solid white;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        font-size: 24px;
+        width: 500px;
+        margin-top: 200px;
+        border-radius: 15px;
+      }
+      .delete_view p{
+        margin: 20px;
+      }
+      .delete_view a{
+        margin-left: 260px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .delete_view input{
+        margin-left: 20px;
+      }
+      /*Create page*/
+      .home_table{
+           overflow-y:scroll;
+           height:400px;
+           width: 95%;
+           margin-left: auto;
+           margin-right: auto;
+      }
+      thead th{
+           color: #d6e46d;
+      }
+      tbody th{
+           color: white;
+      }
+      /*other*/
       .hello-msg{
         font-size: 18px;
         color: #fff;
         margin-left: 200px;
 
       }
-      .home_table{
-           overflow-y:scroll;
-           height:400px;
-      }
       #not_needed{
         visibility: hidden;
       }
-     
+      .typewriter{
+      overflow: hidden; /* Ensures the content is not revealed until the animation */
+      border-right: .15em solid orange; /* The typwriter cursor */
+      white-space: nowrap; /* Keeps the content on a single line */
+      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+      letter-spacing: .15em; /* Adjust as needed */
+      animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+      }
+      
+      /* The typing effect */
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+      
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange; }
+      }
+           
     </style>
   </head>
   <body>
@@ -108,5 +247,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     -->
+    <script src="{% static 'wow/wow.min.js'%}"></script>
+    <script>
+        new WOW().init();
+    </script>
+
   </body>
 </html>

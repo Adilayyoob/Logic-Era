@@ -3,105 +3,83 @@
 {% block content %}
 
 
-<div class="">
-<h1>home {{au_user}}</h1>
+<div>
+<h2>Welcome Home <span>{{users.username}}</span></h2>
 
 
-<h1>Upcoming Events</h1>
+<div class="col-sm-4 col-xm-12 wow slideInLeft up"><h1><span>Upcoming</span> Events</h1></div>
 
 <div>
 
+  <div id="upEventCardView" class="wow fadeInUp">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+    {% for i in events %}
+    
+    <div class="col wow">
+    <div class="card text-white background_EventCard">
+      {% if i.banner %}
+      <img src="{{ i.banner.url }}" class="card-img-top" alt="Banner" width="286" height="180">
+      {% endif %}
+      <div class="card-body ">
+        <h5 class="card-title"><span class="prime_red">{{i.id}}</span> {{i.title}}</h5>
+        <p class="card-text prime_green" >{{i.description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-white background_EventCard">Date: {{i.date}}</li>
+        <li class="list-group-item text-white background_EventCard">Location: {{i.location}}</li>
+        <li class="list-group-item text-white background_EventCard">Max number of Participants: {{i.max}}</li>
+      </ul>
+    </div>
+    </div>
+    {% endfor %}
+  
+  </div>
+  
+  </div>
 
-<div class="home_table">
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Title</th>
-        <th scope="col">Date And Time</th>
-        <th scope="col">Location</th>
-        <th scope="col">Max Participants</th>
-        <th scope="col">Description</th>
-        <th scope="col">Banner</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-        {% for i in events %}
-      <tr>
-        <th scope="col">{{i.id}}</th>
-        <th scope="col">{{i.title}}</th>
-        <th scope="col">{{i.date}}</th>
-        <th scope="col">{{i.location}}</th>
-        <th scope="col">{{i.max}}</th>
-        <th scope="col">{{i.description}}</th>
-        {% if i.banner %}
-              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
-        {% endif %}
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
 
-<div>
+
+
+<div id="cards_view">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body cardViewCards">
+              <p class="card-text"  id="joinedCountCard">Joined Event</p>
               <h5 class="card-title">{{joinedEventCount}}</h5>
-              <p class="card-text">Joined Event</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 wow fadeInUp" data-wow-delay="1s">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body cardViewCards">
+              <p class="card-text" id="createdCountCard">Created Events</p>
               <h5 class="card-title">{{ CreatedEventCount }}</h5>
-              <p class="card-text">Created Events</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+              </div>
           </div>
         </div>
       </div>
 </div>
 
 
+
+
+
 </div>
 
+
+
+
+
+
+
+</div>
 
 
 {% endblock %}
 
 
-<!--
-
-<div>
-  <div class="row row-cols-1 row-cols-md-5 g-4">
-  {% for i in events %}
-  
-  <div class="col">
-  <div class="card">
-    {% if i.banner %}
-    <img src="{{ i.banner.url }}" class="card-img-top" alt="Banner" width="286" height="180">
-    {% endif %}
-    <div class="card-body">
-      <h5 class="card-title">{{i.title}}</h5>
-      <p class="card-text">{{i.description}}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Date: {{i.date}}</li>
-      <li class="list-group-item">Location: {{i.location}}</li>
-      <li class="list-group-item">Max number of Participants: {{i.max}}</li>
-    </ul>
-  </div>
-  </div>
-  {% endfor %}
-
-</div>
-
-</div>
 
 
--->
+

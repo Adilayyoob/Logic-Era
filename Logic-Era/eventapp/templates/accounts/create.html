@@ -4,25 +4,43 @@
 
 
 
-<h1>create</h1>
+<h1 class="col-sm-4 col-xm-12 wow slideInLeft up">Create Your <span>Event</span> here</h1>
 <style>
   .formcontainer{
     margin-left: auto;
     margin-right: auto;
     width: 40%;
+    color: #d6e46d;
+  }
+  .sp span{
+    color: white;
+  }
+  .form_submit{
+    background-color: #18414E;
+    color: white;
+  }
+  .form_submit:hover{
+    background-color: #d6e46d;
+    color: black;
+  }
+  thead th{
+    color: #d6e46d;
+  }
+  tbody th{
+    color: white;
   }
 
 </style>
 
-<div class="formcontainer">
+<div class="formcontainer wow fadeInUp">
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="mb-3">
     <label class="form-label">Title</label>
     {{ form.title }}
   </div>
-  <div class="mb-3">
-    <label  class="form-label">Date and Time eg:(2021-05-19 09:08:27)</label>
+  <div class="mb-3 sp">
+    <label  class="form-label">Date and Time eg:<span>(2021-05-19 09:08:27)</span></label>
     {{ form.date }}
    
   </div>
@@ -49,17 +67,17 @@
 
 
 
-<input type="submit" name="Submit">
+<input type="submit" name="Submit" class="form_submit  wow bounceInUp" data-wow-delay="0.5s">
 </form>
 {{ form.errors}}
 </div>
 
 
 
-<h1>created Events</h1>
+<h1 class="col-sm-4 col-xm-12 wow slideInLeft up" data-wow-delay="0.1s">Your Created <span>Events</span></h1>
 <div class="home_table">
   
-  <table class="table">
+  <table class="table  wow fadeInUp">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -69,7 +87,7 @@
         <th scope="col">Max Participants</th>
         <th scope="col">Description</th>
         <th scope="col">Banner</th>
-        <th scope="col">Delete</th>
+        <th scope="col">View/Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -89,7 +107,8 @@
               <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
               {% endif %}
               <td>
-                <a class="btn btn-outline-danger" href="{% url 'deleteevent' i.id %}">Delete</a>
+                <a class="btn btn-success" href="{% url 'eventdetails' i.id %}">View</a>
+                <a class="btn btn-danger" href="{% url 'deleteevent' i.id %}">Delete</a>
             </td>
             </tr>
             {% endif %}

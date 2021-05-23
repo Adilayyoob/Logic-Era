@@ -1,0 +1,52 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .detail_table{
+        width: 95%;
+        height: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-y:scroll;
+    }
+    .print{
+        margin-left:  5%;
+    }
+</style>
+
+<div>
+<div class="detail_table">
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in peoplejoined %}
+    {% for j in users1 %}
+    {% if i.User_id == j.id %}
+    <tr>
+      <th scope="col">{{j.username}}</th>
+      <th scope="col">{{j.email}}</th>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+   
+            
+    </tbody>
+  </table>
+</div>
+   <div>
+       <button class="btn btn-success print">Print</button>
+   </div>
+
+
+</div>
+  {% endblock %}
+
+
+  

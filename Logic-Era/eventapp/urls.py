@@ -8,7 +8,8 @@ urlpatterns = [
     path("join/<str:us>/",views.join,name='join'),
     path("deletejoin/<str:us>/",views.deletejoin,name='deletejoin'),
     path("deleteevent/<str:us>/",views.deleteevent,name='deleteevent'),
-  
+    path("eventdetails/<str:us>/",views.eventdetails,name='eventdetails'),
+   
 
     path("register/", views.register, name='register'),
     path("login/", views.loginPage, name='login'),

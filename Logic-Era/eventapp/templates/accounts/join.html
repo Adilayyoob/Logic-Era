@@ -2,16 +2,37 @@
 {% load static %}
 
 {% block content %}
+<style>
+  .join_form{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .joinEvent{
+    color: white;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    
+  }
+  .joinEvent span{
+    color: #d6e46d;
+  }
+  .join_button{
+    margin-left: 13%;
+    width: 60px;
+  }
+</style>
 
-<h1>Welcome {{ user }}</h1>
 <div>
-   <h1>Upcoming Events</h1>
+   <h1 class="col-sm-4 col-xm-12 wow slideInLeft up">Upcoming <span>Events</span></h1>
 
-<div class="home_table">
+<div class="home_table wow fadeInUp">
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">Title</th>
         <th scope="col">Date And Time</th>
         <th scope="col">Location</th>
@@ -38,25 +59,25 @@
   </table>
 </div>
 
-<div>
+<div class="join_form">
 <form action="" method="POST">
   {% csrf_token %}
-  <div class="mb-3">
-    <label  class="form-label">Event</label>
+  <div class="mb-3 joinEvent wow fadeInUp" data-wow-delay="0.5s">
+    <label  class="form-label">Select Your <span>Event</span></label>
     {{ form.Event }}
   </div>
   <span >
     {{ form.User }}
   </span>
   
-  <input type="submit" name="Submit" value="join">
+  <input type="submit" name="Submit" value="Join" class="btn btn-success join_button wow bounceInUp" data-wow-delay="1.5s">
 </form>
 </div>
 
-<h1>Joined Events</h1>
+<h1 class="col-sm-4 col-xm-12 wow slideInLeft up" data-wow-delay="2s">Your Joined <span>Events</span></h1>
 <div class="home_table">
   
-<table class="table">
+<table class="table wow fadeInUp">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -86,7 +107,7 @@
               <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
             {% endif %}
             <td>
-              <a class="btn btn-outline-danger" href="{% url 'deletejoin' j.id %}">Delete</a>
+              <a class="btn btn-danger" href="{% url 'deletejoin' j.id %}">Delete</a>
           </td>
           </tr>
           {% endif %}
@@ -102,4 +123,7 @@
 
 </div>
 
+
 {% endblock %}
+
+

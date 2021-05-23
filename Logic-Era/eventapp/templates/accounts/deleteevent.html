@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block content %}
-
-<p>Are you sure deleting the Event "{{ events }}"?</p>
+<div class="delete_view">
+    <p>Are you sure deleting the Event "{{ events }}"?</p>
 <form action="{% url 'deleteevent' events.id %}" method="POST">
     {% csrf_token %}
-    <a href="{% url 'create' users.id %}">Cancel</a>
-    <input type="submit" name="Confirm">
+    <a href="{% url 'create' users.id %}" class="btn btn-success">Cancel</a>
+    <input type="submit" name="Confirm" class="btn btn-danger" value="Confirm">
 </form>
+</div>
+
 
 
 {% endblock %}
