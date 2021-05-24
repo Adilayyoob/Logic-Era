@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 
 
@@ -105,6 +106,8 @@ def deletejoin(request, us):
      }
     return render(request, 'accounts/deletejoin.html', context)
 
+
+
 @login_required(login_url='login')
 def eventdetails(request, us):
     events = event.objects.get(id=us)
@@ -113,10 +116,12 @@ def eventdetails(request, us):
 
     peoplejoined = joinevent.objects.filter(Event_id=us)
     users1 = User.objects.all()
+    
     context = {
         'users':users,
         'peoplejoined':peoplejoined,
         'users1':users1,
+        'events':events,
     }
     return render(request, 'accounts/eventdetails.html', context)
 
@@ -172,8 +177,6 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
-
-
 
 
 

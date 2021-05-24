@@ -19,9 +19,10 @@
     {% load static %}
     <!-- animate CSS -->
     <link href="{% static 'animate/animate.min.css'%}" rel="stylesheet">
-    
+    <!-- fevicon -->
+    <link rel="icon" type="image/png" href="{% static 'background/fevicon.png'%}">
 
-    <title>FC EMP</title>
+    <title>FK EMP</title>
     <style>
       /*main page*/
       body{
@@ -77,7 +78,7 @@
           font-size: 36px;
           line-height: 54px;
           color: white;
-         
+          text-align: center;
           
       }
       h1 span{
@@ -128,6 +129,7 @@
       .prime_red{
         color: #f37973;
       }
+     
       /*delete pages*/
       .delete_view{
         background:  #18414E;
@@ -175,27 +177,28 @@
       #not_needed{
         visibility: hidden;
       }
-      .typewriter{
-      overflow: hidden; /* Ensures the content is not revealed until the animation */
-      border-right: .15em solid orange; /* The typwriter cursor */
-      white-space: nowrap; /* Keeps the content on a single line */
-      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-      letter-spacing: .15em; /* Adjust as needed */
-      animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
+      /* image */
+      .image_container{
+        width: 286px;
       }
-      
-      /* The typing effect */
-      @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
+      .object-fit-contain{
+        object-fit: contain;
+        background-color: #d6e46d;
       }
-      
-      /* The typewriter cursor effect */
-      @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: orange; }
+      .object-fit-contain:hover{
+        background-color: #f37973;
+      }
+       /*media query*/
+      @media (max-width: 768px) {
+        h1{
+          margin-left: 20px;
+        }
+      }
+      @media (max-width: 576px){
+        .card_created{
+          margin-top: 20px;
+        }
+
       }
            
     </style>
@@ -203,7 +206,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" id="nav">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="title">FC EMP</a>
+        <a class="navbar-brand" href="#" id="title">FK EMP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

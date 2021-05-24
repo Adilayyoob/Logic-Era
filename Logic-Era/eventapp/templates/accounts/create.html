@@ -4,7 +4,7 @@
 
 
 
-<h1 class="col-sm-4 col-xm-12 wow slideInLeft up">Create Your <span>Event</span> here</h1>
+<h1 class="wow slideInLeft up">Create Your <span>Event</span> here</h1>
 <style>
   .formcontainer{
     margin-left: auto;
@@ -28,6 +28,12 @@
   }
   tbody th{
     color: white;
+  }
+  /*media*/
+  @media (max-width: 768px) {
+    .formcontainer{
+      width: 90%;
+    }
   }
 
 </style>
@@ -74,7 +80,7 @@
 
 
 
-<h1 class="col-sm-4 col-xm-12 wow slideInLeft up" data-wow-delay="0.1s">Your Created <span>Events</span></h1>
+<h1 class="wow slideInLeft up" data-wow-delay="0.1s">Your Created <span>Events</span></h1>
 <div class="home_table">
   
   <table class="table  wow fadeInUp">
@@ -104,7 +110,7 @@
               <th scope="col">{{i.max}}</th>
               <th scope="col">{{i.description}}</th>
               {% if i.banner %}
-              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
+              <th scope="col"> <a href="{{ i.banner.url }}"><img src="{{ i.banner.url }}" width="200" height="100" class="object-fit-contain"></a></th>
               {% endif %}
               <td>
                 <a class="btn btn-success" href="{% url 'eventdetails' i.id %}">View</a>

@@ -7,7 +7,7 @@
 <h2>Welcome Home <span>{{users.username}}</span></h2>
 
 
-<div class="col-sm-4 col-xm-12 wow slideInLeft up"><h1><span>Upcoming</span> Events</h1></div>
+<div class="wow slideInLeft up"><h1><span>Upcoming</span> Events</h1></div>
 
 <div>
 
@@ -18,7 +18,7 @@
     <div class="col wow">
     <div class="card text-white background_EventCard">
       {% if i.banner %}
-      <img src="{{ i.banner.url }}" class="card-img-top" alt="Banner" width="286" height="180">
+      <a href="{{ i.banner.url }}"><img src="{{ i.banner.url }}" class="card-img-top object-fit-contain" alt="Banner" width="286" height="180"></a>
       {% endif %}
       <div class="card-body ">
         <h5 class="card-title"><span class="prime_red">{{i.id}}</span> {{i.title}}</h5>
@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6 wow fadeInUp" data-wow-delay="1s">
+        <div class="col-sm-6 wow fadeInUp card_created" data-wow-delay="1s">
           <div class="card">
             <div class="card-body cardViewCards">
               <p class="card-text" id="createdCountCard">Created Events</p>

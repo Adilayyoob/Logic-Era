@@ -20,7 +20,6 @@ class joinevent(models.Model):
     Event = models.ForeignKey(event, null=True, on_delete= models.SET_NULL)
     User = models.ForeignKey(User, null=True, on_delete= models.SET_NULL)
     
-    def __str__(self):
-        return self.Event.title
+    
 
 

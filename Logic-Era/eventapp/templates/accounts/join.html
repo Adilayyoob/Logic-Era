@@ -4,9 +4,9 @@
 {% block content %}
 <style>
   .join_form{
-    width: 300px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
   .joinEvent{
     color: white;
@@ -20,13 +20,13 @@
     color: #d6e46d;
   }
   .join_button{
-    margin-left: 13%;
+   
     width: 60px;
   }
 </style>
 
 <div>
-   <h1 class="col-sm-4 col-xm-12 wow slideInLeft up">Upcoming <span>Events</span></h1>
+   <h1 class="wow slideInLeft up">Upcoming <span>Events</span></h1>
 
 <div class="home_table wow fadeInUp">
 <table class="table">
@@ -51,7 +51,7 @@
         <th scope="col">{{i.max}}</th>
         <th scope="col">{{i.description}}</th>
         {% if i.banner %}
-              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
+              <th scope="col"><a href="{{ i.banner.url }}"><img src="{{ i.banner.url }}" width="200" height="100" class="object-fit-contain"></a></th>
         {% endif %}
       </tr>
       {% endfor %}
@@ -64,7 +64,8 @@
   {% csrf_token %}
   <div class="mb-3 joinEvent wow fadeInUp" data-wow-delay="0.5s">
     <label  class="form-label">Select Your <span>Event</span></label>
-    {{ form.Event }}
+    <div>{{ form.Event }}</div>
+    
   </div>
   <span >
     {{ form.User }}
@@ -74,7 +75,7 @@
 </form>
 </div>
 
-<h1 class="col-sm-4 col-xm-12 wow slideInLeft up" data-wow-delay="2s">Your Joined <span>Events</span></h1>
+<h1 class="wow slideInLeft up" data-wow-delay="2s">Your Joined <span>Events</span></h1>
 <div class="home_table">
   
 <table class="table wow fadeInUp">
@@ -104,7 +105,7 @@
             <th scope="col">{{i.max}}</th>
             <th scope="col">{{i.description}}</th>
             {% if i.banner %}
-              <th scope="col"><img src="{{ i.banner.url }}" width="200" height="100"></th>
+              <th scope="col"><a href="{{ i.banner.url }}"><img src="{{ i.banner.url }}" width="200" height="100" class="object-fit-contain"></a></th>
             {% endif %}
             <td>
               <a class="btn btn-danger" href="{% url 'deletejoin' j.id %}">Delete</a>
