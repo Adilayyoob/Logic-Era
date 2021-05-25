@@ -1,0 +1,130 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  .join_form{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .joinEvent{
+    color: white;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    
+  }
+  .joinEvent span{
+    color: #d6e46d;
+  }
+  .join_button{
+   
+    width: 60px;
+  }
+</style>
+
+<div>
+   <h1 class="wow slideInLeft up">Upcoming <span>Events</span></h1>
+
+<div class="home_table wow fadeInUp">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date And Time</th>
+        <th scope="col">Location</th>
+        <th scope="col">Max Participants</th>
+        <th scope="col">Description</th>
+        <th scope="col">Banner</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for i in events %}
+      <tr>
+        <th scope="col">{{i.id}}</th>
+        <th scope="col">{{i.title}}</th>
+        <th scope="col">{{i.date}}</th>
+        <th scope="col">{{i.location}}</th>
+        <th scope="col">{{i.max}}</th>
+        <th scope="col">{{i.description}}</th>
+        {% if i.banner %}
+              <th scope="col"><a href="{% static i.banner.url %}"><img src="{% static i.banner.url %}" width="200" height="100" class="object-fit-contain"></a></th>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="join_form">
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="mb-3 joinEvent wow fadeInUp" data-wow-delay="0.5s">
+    <label  class="form-label">Select Your <span>Event</span></label>
+    <div>{{ form.Event }}</div>
+    
+  </div>
+  <span >
+    {{ form.User }}
+  </span>
+  
+  <input type="submit" name="Submit" value="Join" class="btn btn-success join_button wow bounceInUp" data-wow-delay="1.5s">
+</form>
+</div>
+
+<h1 class="wow slideInLeft up" data-wow-delay="2s">Your Joined <span>Events</span></h1>
+<div class="home_table">
+  
+<table class="table wow fadeInUp">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date And Time</th>
+      <th scope="col">Location</th>
+      <th scope="col">Max Participants</th>
+      <th scope="col">Description</th>
+      <th scope="col">Banner</th>
+      <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+    
+    
+     {% for j in usersJoinedEvent %}
+        {% for i in events %}
+          {% if j.Event_id == i.id %}
+          <tr>
+            <th scope="col">{{i.id}}</th>
+            <th scope="col">{{i.title}}</th>
+            <th scope="col">{{i.date}}</th>
+            <th scope="col">{{i.location}}</th>
+            <th scope="col">{{i.max}}</th>
+            <th scope="col">{{i.description}}</th>
+            {% if i.banner %}
+              <th scope="col"><a href="{% static i.banner.url %}"><img src="{% static i.banner.url %}" width="200" height="100" class="object-fit-contain"></a></th>
+            {% endif %}
+            <td>
+              <a class="btn btn-danger" href="{% url 'deletejoin' j.id %}">Delete</a>
+          </td>
+          </tr>
+          {% endif %}
+        {% endfor %}
+          
+      {% endfor %}
+  
+   
+  </tbody>
+</table>
+</div>
+
+
+</div>
+
+
+{% endblock %}
+
+

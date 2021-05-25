@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- fond CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Oleo+Script+Swash+Caps&family=Poppins:ital,wght@0,800;1,500&display=swap" rel="stylesheet">
+    {% load static %}
+    <!-- animate CSS -->
+    <link href="{% static 'animate/animate.min.css'%}" rel="stylesheet">
+    <!-- fevicon -->
+    <link rel="icon" type="image/png" href="{% static 'background/fevicon.png' %}">
+
+    <title>FK EMP</title>
+    <style>
+      /*main page*/
+      body{
+        background-color: rgba(0, 0, 0, 0.67); 
+      }
+      #title{
+        margin-left: 167px;
+        color: white;
+        font-family: 'Oleo Script Swash Caps', cursive;
+        font-size: 24px;
+      }
+      .content{
+        background: rgba(0, 0, 0, 0.67);
+      }
+      #nav{
+            background-color: #18414E;
+      }
+      #logout{
+        color: #18414E; 
+      }
+      #logout:hover{
+        background-color: #18414E;
+        color: white;
+      }
+      /*home page*/
+      .upcoming_event_view{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      h2{
+            font-family: Poppins;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 24px;
+            margin-top: 10px;
+            color: white;
+            margin-left: 5%;
+      }
+      h2 span{
+        color: #f37973;
+      }
+      .up{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+           
+        }
+      h1{
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 800;
+          font-size: 36px;
+          line-height: 54px;
+          color: white;
+          text-align: center;
+          
+      }
+      h1 span{
+          color: #d6e46d;
+      }
+      #cards_view{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        
+      }
+      .cardViewCards{
+        background-color: #18414E;
+        border-radius: 10px;
+        border: 2px solid white;
+      }
+      .cardViewCards p{
+        font-size: 24px;
+        font-family: 'Poppins', sans-serif;
+      }
+      #joinedCountCard{
+        color: #f37973;
+      }
+      #createdCountCard{
+        color: #d6e46d;
+      }
+      .cardViewCards h5{
+        font-size: 48px;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+      }
+      #upEventCardView{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:420px;
+      }
+      .background_EventCard{
+        background-color: #18414E;
+      }
+      .prime_green{
+        color: #d6e46d;
+
+      }
+      .prime_red{
+        color: #f37973;
+      }
+     
+      /*delete pages*/
+      .delete_view{
+        background:  #18414E;
+        border: 2px solid white;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        font-size: 24px;
+        width: 500px;
+        margin-top: 200px;
+        border-radius: 15px;
+      }
+      .delete_view p{
+        margin: 20px;
+      }
+      .delete_view a{
+        margin-left: 260px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .delete_view input{
+        margin-left: 20px;
+      }
+      /*Create page*/
+      .home_table{
+           overflow-y:scroll;
+           height:400px;
+           width: 95%;
+           margin-left: auto;
+           margin-right: auto;
+      }
+      thead th{
+           color: #d6e46d;
+      }
+      tbody th{
+           color: white;
+      }
+      /*other*/
+      .hello-msg{
+        font-size: 18px;
+        color: #fff;
+        margin-left: 200px;
+
+      }
+      #not_needed{
+        visibility: hidden;
+      }
+      /* image */
+      .image_container{
+        width: 286px;
+      }
+      .object-fit-contain{
+        object-fit: contain;
+        background-color: #d6e46d;
+      }
+      .object-fit-contain:hover{
+        background-color: #f37973;
+      }
+       /*media query*/
+      @media (max-width: 768px) {
+        h1{
+          margin-left: 20px;
+        }
+      }
+      @media (max-width: 576px){
+        .card_created{
+          margin-top: 20px;
+        }
+
+      }
+           
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" id="title">FK EMP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'home' users.id %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'create' users.id %}">Create Event</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'join' users.id %}">Join Event</a>
+            </li>
+            <li class="nav-item">
+              <span><a href="{% url 'logout' %}" class="btn btn-light" id="logout">Logout</a></span>
+              <!-- <span class="hello-msg">Hello_{{request.user}}</span> -->
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+      
+    </nav>
+
+    {% block content %}
+
+
+
+
+
+    {% endblock %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+    <script src="{% static 'wow/wow.min.js'%}"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+  </body>
+</html>

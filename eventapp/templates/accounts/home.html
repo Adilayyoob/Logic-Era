@@ -1,0 +1,85 @@
+{% extends 'accounts/main.html' %}
+{% load static%}
+{% block content %}
+
+
+<div>
+<h2>Welcome Home <span>{{users.username}}</span></h2>
+
+
+<div class="wow slideInLeft up"><h1><span>Upcoming</span> Events</h1></div>
+
+<div>
+
+  <div id="upEventCardView" class="wow fadeInUp">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+    {% for i in events %}
+    
+    <div class="col wow">
+    <div class="card text-white background_EventCard">
+      {% if i.banner %}
+      <a href="{% static i.banner.url %}"><img src="{% static i.banner.url %}" class="card-img-top object-fit-contain" alt="Banner" width="286" height="180"></a>
+      {% endif %}
+      <div class="card-body ">
+        <h5 class="card-title"><span class="prime_red">{{i.id}}</span> {{i.title}}</h5>
+        <p class="card-text prime_green" >{{i.description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-white background_EventCard">Date: {{i.date}}</li>
+        <li class="list-group-item text-white background_EventCard">Location: {{i.location}}</li>
+        <li class="list-group-item text-white background_EventCard">Max number of Participants: {{i.max}}</li>
+      </ul>
+    </div>
+    </div>
+    {% endfor %}
+  
+  </div>
+  
+  </div>
+
+
+
+
+<div id="cards_view">
+    <div class="row">
+        <div class="col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="card">
+            <div class="card-body cardViewCards">
+              <p class="card-text"  id="joinedCountCard">Joined Event</p>
+              <h5 class="card-title">{{joinedEventCount}}</h5>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 wow fadeInUp card_created" data-wow-delay="1s">
+          <div class="card">
+            <div class="card-body cardViewCards">
+              <p class="card-text" id="createdCountCard">Created Events</p>
+              <h5 class="card-title">{{ CreatedEventCount }}</h5>
+              </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
