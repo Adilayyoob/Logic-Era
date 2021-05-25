@@ -55,27 +55,26 @@ sqlparse==0.4.1
 webencodings==0.5.1
 whitenoise==5.2.0
 ## How to configure
-step 1:  python should be installed
-             Download python from https://www.python.org/downloads/ 
-             (Note: While installing python tic add to PATH variable)
-step 2: Install virtual environment to your project folder
-             To install code in command line is : 
-             pip install virtualenvwrapper-win
-step 3: make a virtual env 
-            mkvirtualenv myproject 
-            (Note: myproject is name, it can vary according to you)
-step 4: Get inside vertual environment by 
-            .\myproject\Scripts\activate
-step 5: Install django by code
-             pip install django
-step 6: Rest is coding
+1. python should be installed
+   Download python from https://www.python.org/downloads/ 
+   (Note: While installing python tic add to PATH variable)
+2. Install virtual environment to your project folder
+   To install code in command line is : 
+   pip install virtualenvwrapper-win
+3. make a virtual env 
+   mkvirtualenv myproject 
+   (Note: myproject is name, it can vary according to you)
+4. Get inside vertual environment by 
+   .\myproject\Scripts\activate
+5. Install django by code
+   pip install django
+6. Rest is coding
 ## How to Run
-step 1:  Go to folder in Command line.
-step 2: Activate vertual environment. ubuntu : source myproject/bin/activate || windows :   .\myproject\Scripts\activate
-step 3: Run requirements.txt by code: - pip install -r requirements.txt
-step 4: To open server: - python manage.py runserver 
-              (Server provide url in which you can see site. Eg: http://127.0.0.1:8000/)
-step 5: To close server - ctrl+c
-step 6: Migrate making, code: python manage.py makemigrations
-step 7: Migrateing , code: python manage.py migrate 
-(Note: To get out of vertualenvironment code is : deactivate)  
+1. Go to folder in Command line.
+2. Activate vertual environment. ubuntu : source myproject/bin/activate || windows :   .\myproject\Scripts\activate
+3. Run requirements.txt by code: - pip install -r requirements.txt
+4. To open server: - python manage.py runserve .       (Server provide url in which you can see site. Eg: http://127.0.0.1:8000/)
+5. To close server - ctrl+c
+6. Migrate making, code: python manage.py makemigrations
+7. Migrateing , code: python manage.py migrate 
+   (Note: To get out of vertualenvironment code is : deactivate)  
