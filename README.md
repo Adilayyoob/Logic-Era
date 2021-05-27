@@ -8,8 +8,9 @@ browsers. Animated pages in this website give the user a feel-good mood.
 And FK EMP requires login to create or join an Event that means FK EMP 
 is secure. "Logic-Era" is only a code name for the project.
 ## Team members
-1. Ali Muflih [https://github.com/Alimuflih]
-2. Sahal EKZ [https://github.com/sahalekz]
+1. Adil Ayyoob [https://github.com/Adilayyoob]
+2. Ali Muflih [https://github.com/Alimuflih]
+3. Sahal EKZ [https://github.com/sahalekz]
 ## Team Id
 BFH/reczAdB3PEGhWSg25/2021
 ## Link to product walkthrough
